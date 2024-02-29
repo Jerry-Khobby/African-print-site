@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeMaster from '@/component/homepage/master_home';
+import HomeMaster from '@/components/homepage/master_home';
 
 const HomeMasterPage = () => {
     return ( 

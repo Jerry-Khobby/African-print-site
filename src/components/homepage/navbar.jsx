@@ -14,7 +14,7 @@ const Nav = () => {
         display:'flex',
         alignItems: 'center',
         borderBottom: "1px solid #ccc", // Adding a thin line at the bottom
-        position:'fixed',
+        /* position:'fixed', */
         justifyContent: 'center',
     }}>
         <Container sx={{width:'100%'}}>
