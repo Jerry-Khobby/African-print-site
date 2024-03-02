@@ -17,7 +17,7 @@ const Banner = () => {
             <div className='flex flex-col items-center '>
                 <h1 className='text-white font-mono text-3xl text-center'>Buy an African Cloth and Get 20% off within the next 24hours</h1>
                 <div className='flex items-center justify-center mt-10 self-center'>
-                    <Button className='text-white bg-black hover:bg-blue-600'>Shop Now</Button>
+                <Button className='block w-full mt-4 text-white bg-black hover:bg-blue-600 hover:text-white'>Shop Now</Button>
                 </div>
             </div>
         </div>
