@@ -1,7 +1,7 @@
 export const categories=[
     {
         id:1,
-        group:'Kente Cloth',
+        group:'Kente ',
         imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI='
     },
     {
