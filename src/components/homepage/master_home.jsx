@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './navbar';
 import Banner from './banner';
 import CategorySection from './categories';
+import FeaturedProducts from './featuredProducts';
 
 const HomeMaster = () => {
     return ( 
@@ -9,6 +10,7 @@ const HomeMaster = () => {
             <Nav />
             <Banner />
             <CategorySection/>
+            <FeaturedProducts/>
         </div>
      );
 }
