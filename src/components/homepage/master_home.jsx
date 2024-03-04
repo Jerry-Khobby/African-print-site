@@ -7,8 +7,8 @@ import FooterComponent from './footer';
 
 const HomeMaster = () => {
     return ( 
-        <div className='relative'>
-            <Nav />
+        <div>
+            <Nav/>
             <Banner />
             <CategorySection/>
             <FeaturedProducts/>

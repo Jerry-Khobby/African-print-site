@@ -9,15 +9,18 @@ import UserIcon from './UserIcon'
 const Nav = () => {
   return (
     <div style={{
-        height: "68px",
-        width:"100%",
-        display:'flex',
-        alignItems: 'center',
-        borderBottom: "1px solid #ccc", // Adding a thin line at the bottom
-        /* position:'fixed', */
-        justifyContent: 'center',
+      borderBottom: "2px solid #ccc",
+      backgroundColor: 'white',
+      zIndex: '1000',
+      height:'68px',
+      position:'fixed',
+      top:'0',
+      left:'0',
+      right:'0',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional: Add a subtle shadow
+      padding: '0 16px', //
     }}>
-        <Container sx={{width:'100%'}}>
+        <Container sx={{width:'100%'}} className='h-full  '>
            <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
             <Grid item xs = {2}  sm = {3} md = {2} lg = {2} display={"flex"} justifyContent={"center"} alignItems={"center"}>
                         <Box>

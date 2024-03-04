@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 
 const Banner = () => {
     return ( 
-        <div className='w-full  h-96 flex flex-col items-center justify-center' style={{
+        <div className='w-full  h-96 flex flex-col items-center justify-center mt-16' style={{
             backgroundImage:`
             linear-gradient(
                 rgba(0, 0, 0, 0.5),
