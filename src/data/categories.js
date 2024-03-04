@@ -28,3 +28,56 @@ export const categories=[
 ]
 
 
+
+export const  featuredProducts=[
+    {
+        id:1,
+        group:'Kente',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI=',
+    },
+    {
+        id:2,
+        group:'Ankara',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI='
+    },
+    {
+        id:3,
+        group:'Smock',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI=',
+    },
+    {
+        id:4,
+        group:'Adinkra',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI=',
+        price:'',
+    },
+    {
+        id:5,
+        group:'Ankara',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI=',
+    },
+    {
+        id:6,
+        group:'Briskis',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI=',
+    },
+    {
+        id:7,
+        group:'Briskis',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI=',
+    },
+    {
+        id:8,
+        group:'Smock',
+        description:'xyzeas',
+        imageUrl:'https://media.gettyimages.com/id/157308720/photo/traditional-kente-cloth.webp?s=2048x2048&w=gi&k=20&c=xfZH-A7DIIEeoRi2qa6qSlVZ9p0ZeTLc1Ov7GlHhePI=',
+    }
+]
+
