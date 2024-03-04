@@ -10,13 +10,17 @@ const getRandomItems = (array, count = 6) => {
     return shuffled.slice(0, count);
   };
   const randomItems=getRandomItems(featuredProducts,12);
+
+
+
+
     return ( 
-        <div className='flex flex-column items-center justify-center mt-10'>
+        <div className='flex flex-column items-center justify-center mt-20'>
 <div>
     <h1 className='text-3xl font-mono font-semibold text-center'>Featured Products</h1>
 </div>
 <div>
-<div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 justify-items-center'>
+<div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 justify-items-center cursor-pointer'>
 {
     randomItems.map((randomItem)=>{
         return(
