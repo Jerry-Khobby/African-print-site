@@ -12,13 +12,13 @@ const Nav = () => {
       borderBottom: "2px solid #ccc",
       backgroundColor: 'white',
       zIndex: '1000',
-      height:'68px',
+      height:'70px',
       position:'fixed',
       top:'0',
       left:'0',
       right:'0',
       boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional: Add a subtle shadow
-      padding: '0 16px', //
+      padding: '10px 0', //
     }}>
         <Container sx={{width:'100%'}} className='h-full  '>
            <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
