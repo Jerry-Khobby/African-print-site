@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '@mui/material';
+import Link from 'next/link';
 
 
 const Banner = () => {
@@ -17,7 +18,10 @@ const Banner = () => {
             <div className='flex flex-col items-center '>
                 <h1 className='text-white font-mono text-3xl text-center'>Buy an African Cloth and Get 20% off within the next 24hours</h1>
                 <div className='flex items-center justify-center mt-10 self-center w-28'>
-                <Button className='block w-full mt-4 text-white hover:bg-blue-500 bg-black'>Shop Now</Button>
+                    <Link href="/Shop" style={{color:'inherit'}}>
+                    <Button className='block w-full mt-4 text-white hover:bg-blue-500 bg-black'>Shop Now</Button>
+                    </Link>
+            
                 </div>
             </div>
         </div>

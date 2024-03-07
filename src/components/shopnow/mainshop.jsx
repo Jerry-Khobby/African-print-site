@@ -2,8 +2,7 @@ import React from 'react'
 import Nav from '../homepage/navbar';
 
 
-
-const ShopNowMain = () => {
+const MainShopNow = () => {
     return ( 
         <div>
 <Nav/>
@@ -11,4 +10,4 @@ const ShopNowMain = () => {
      );
 }
  
-export default ShopNowMain;
+export default MainShopNow;
