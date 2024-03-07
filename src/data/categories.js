@@ -574,6 +574,14 @@ export const featuredProducts = [
         price:'35.00',
         name:'Smock and Fungu Cloth',
     },
+    {
+        id: 69,
+        group: 'Kente',
+        description: 'xyzeas',
+        imageUrl: 'https://i.pinimg.com/564x/30/03/c8/3003c87e7e045d310296b37752de5114.jpg',
+        price: '280.0',
+        name:'A beautiful kente cloth',
+    },
 ];
 
 
