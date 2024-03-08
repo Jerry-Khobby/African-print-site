@@ -570,7 +570,7 @@ export const featuredProducts = [
         id: 68,
         group: 'Kente',
         description: 'xyzeas',
-        imageUrl: 'https://i.pinimg.com/564x/30/03/c8/3003c87e7e045d310296b37752de5114.jpg',
+        imageUrl: 'https://i.pinimg.com/736x/6f/f0/22/6ff022422365eb5c1f0f349eaaf3cc52.jpg',
         price: '280.0',
         name:'A beautiful kente cloth',
     },
