@@ -568,19 +568,35 @@ export const featuredProducts = [
     },
     {
         id: 68,
-        group: 'Smock',
-        description: 'xyzeas',
-        imageUrl: 'https://i.pinimg.com/564x/69/9b/fb/699bfbd47b44ccb7ca9cf16bedfa0086.jpg',
-        price:'35.00',
-        name:'Smock and Fungu Cloth',
-    },
-    {
-        id: 69,
         group: 'Kente',
         description: 'xyzeas',
         imageUrl: 'https://i.pinimg.com/564x/30/03/c8/3003c87e7e045d310296b37752de5114.jpg',
         price: '280.0',
         name:'A beautiful kente cloth',
+    },
+    {
+        id: 69,
+        group: 'Adinkra',
+        description: 'xyzeas',
+        imageUrl: 'https://i.pinimg.com/564x/fa/a4/73/faa473627dd006721d2490ca47f37c40.jpg',
+        price: '300.0',
+        name:'Traditional cloth with symbols',
+    },
+    {
+        id: 70,
+        group: 'Ankara',
+        description: 'xyzeas',
+        imageUrl: 'https://i.pinimg.com/564x/be/fc/14/befc14ddea034fb05b0e74e9245ccc51.jpg',
+        price: '100.0',
+        name:'Spectacular african cloth',
+    },
+    {
+        id: 71,
+        group: 'Briskis',
+        description: 'xyzeas',
+        imageUrl: 'https://i.pinimg.com/564x/28/63/ab/2863abaaf8749fa674458091e1d101e8.jpg',
+        price: '18.9',
+        name:'A cloth for simple funeral',
     },
 ];
 
