@@ -598,6 +598,14 @@ export const featuredProducts = [
         price: '18.9',
         name:'A cloth for simple funeral',
     },
+    {
+        id: 72,
+        group: 'Briskis',
+        description: 'xyzeas',
+        imageUrl: 'https://i.pinimg.com/564x/28/63/ab/2863abaaf8749fa674458091e1d101e8.jpg',
+        price: '18.9',
+        name:'A cloth for simple funeral',
+    },
 ];
 
 

@@ -7,7 +7,7 @@ const CategorySection = () => {
             <div>
                 <h1 className='text-3xl font-mono font-semibold text-center'>Product Categories</h1>
             </div>
-            <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 justify-items-center'>
+            <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 justify-items-center'>
                 {categories.map((category) => {
                     return (
                         <div className="border-2 border-gray-200 rounded-lg p-4 w-40 h-40 shadow-sm hover:bg-black hover:text-white" key={category.id}>
