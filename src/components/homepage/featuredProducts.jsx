@@ -25,7 +25,7 @@ const getRandomItems = (array, count = 6) => {
 {
     randomItems.map((randomItem)=>{
         return(
-<div className="border-2 border-gray-200 rounded-lg p-4 w-40 h-44 shadow-sm hover:bg-black hover:text-white" key={randomItem.id}>
+<div className="border-2 border-gray-200 rounded-lg p-4 w-48 h-48 shadow-sm hover:bg-black hover:text-white" key={randomItem.id}>
 <Link  href="/Products" style={{color:'inherit',textDecoration:'none'}}>
                  <img src={randomItem.imageUrl} alt={randomItem.group} className='w-20 h-20 rounded-full flex items-center justify-center mx-auto'/>
                  <div className='mt-0 pb-2'>
