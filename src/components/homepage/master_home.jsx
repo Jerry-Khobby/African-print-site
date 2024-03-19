@@ -11,7 +11,7 @@ const HomeMaster = () => {
             <Nav/>
             <Banner />
             <CategorySection/>
-            <FeaturedProducts/>
+            <FeaturedProducts/> 
             <FooterComponent />
         </div>
      );

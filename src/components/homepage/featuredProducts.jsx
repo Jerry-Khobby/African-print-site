@@ -1,4 +1,3 @@
-'use client'
 
 import React from 'react';
 import { featuredProducts } from '@/data/categories';
@@ -6,11 +5,11 @@ import Link from 'next/link';
 
 
 const FeaturedProducts = () => {
-  const dispatch = useDispatch();
 
-  const handleProductClick = (randomItem) => {
+
+/*   const handleProductClick = (randomItem) => {
     
-  };
+  }; */
 
   const getRandomItems = (array, count = 6) => {
     const shuffled = array.sort(() => 0.5 - Math.random());
@@ -29,7 +28,6 @@ const FeaturedProducts = () => {
             <div
               className="border-2 border-gray-200 rounded-lg p-4 w-48 h-48 shadow-sm hover:bg-black hover:text-white"
               key={randomItem.id}
-              onClick={() => handleProductClick(randomItem)}
             >
               <Link href="/Products" style={{ color: 'inherit', textDecoration: 'none' }}>
                 <img src={randomItem.imageUrl} alt={randomItem.group} className='w-20 h-20 rounded-full flex items-center justify-center mx-auto' />
