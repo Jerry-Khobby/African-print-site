@@ -7,7 +7,7 @@ const initialState={
 
 
 const productSlice=createSlice({
-    name:'product',
+    name:'eachProduct',
     initialState,
     reducers:{
         selectedProduct:(state,action)=>{
@@ -19,6 +19,4 @@ const productSlice=createSlice({
 
 
 export const { selectProduct } = productSlice.actions;
-/* export const selectedProductSelector = (state) => state.product.selectedProduct; */
-
 export default productSlice.reducer;
