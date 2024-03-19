@@ -6,8 +6,8 @@ const initialState={
 };
 
 
-const productSlice=createSlice({
-    name:'eachProduct',
+export const productSlice=createSlice({
+    name:'product',
     initialState,
     reducers:{
         selectedProduct:(state,action)=>{

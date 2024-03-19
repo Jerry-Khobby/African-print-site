@@ -1,21 +1,16 @@
 
+'use client'
 import React from 'react';
 import { featuredProducts } from '@/data/categories';
 import Link from 'next/link';
+import { selectProduct } from '@/lib/reducer';
+import { useAppDispatch,useAppSelector } from '@/lib/hooks';
 
 
 const FeaturedProducts = () => {
-
-
-/*   const handleProductClick = (randomItem) => {
-    
-  }; */
-
-  const getRandomItems = (array, count = 6) => {
-    const shuffled = array.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
-  const randomItems = getRandomItems(featuredProducts, 12);
+const dispatch=useAppDispatch();
+//rendering the first twelve items in the arrays 
+  const randomItems = featuredProducts.slice(0, 12);
 
   return (
     <div className='flex flex-column items-center justify-center mt-20'>
