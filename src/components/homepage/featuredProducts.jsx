@@ -14,7 +14,7 @@ const dispatch=useAppDispatch();
 // event handler for when  a product is clicked 
 
   return (
-    <div className='flex flex-column items-center justify-center mt-20'>
+    <div className='flex flex-col items-center justify-center mt-20'>
       <div className='items-center'>
         <h1 className='text-3xl font-mono font-semibold text-center'>Featured Products</h1>
       </div>

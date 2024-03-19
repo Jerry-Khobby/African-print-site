@@ -1,12 +1,16 @@
+'use client'
 import React from 'react'
+import { useAppSelector } from '@/lib/hooks';
+
 
 
 
 const EachProduct = () => {
-    //ini
+    //initializing the redux to unleash the items to the new screen 
+    const nextItem=useAppSelector((state)=>state.product.selectedProduct)
     return ( 
-    <div>
-<h2>laksjdlkajslkajsdlkajsdlkjaldskjlaksdjlk</h2>
+    <div className=''>
+    
     </div>
      );
 }
