@@ -2,7 +2,6 @@
 'use client'
 import React from 'react';
 import { useAppSelector } from '@/lib/hooks';
-import {Button} from "@mui/material";
 import { CiSquarePlus,CiSquareMinus } from "react-icons/ci";
 const EachProduct = () => {
     // Initializing the redux to unleash the items to the new screen 
@@ -19,7 +18,7 @@ const EachProduct = () => {
     }
 </div>
 <div>
-    <div className='flex items-start flex-col justify-center'>
+    <div className='flex items-center sm:items-center md:items-center lg:items-start  flex-col justify-center'>
         <h2 className='text-2xl font-mono font-semibold '>{nextItem.name}</h2>
         <h2 className='text-lg font-mono font-medium'>This Cloth belongs to the {nextItem.group} group </h2>
         <h4 className='text-lg font-mono font-medium text-gray-400'>${nextItem.price}</h4>
@@ -30,7 +29,10 @@ const EachProduct = () => {
                 <CiSquareMinus size={20} cursor="pointer" />
         </div>
     </div>
-    <Button sx={{backgroundColor:'orange',color:'white',textTransform:'inherit',height:'2rem',width:'15rem',"&:hover":{backgroundColor:'black',color:'white',}}}>Add To Cart</Button>
+    <div className='flex items-center sm:items-center md:items-center lg:items-start  flex-col justify-center'>
+    <button className='bg-red-500 w-60 rounded-sm border-1 border-red-500 text-white text-sm h-6 hover:bg-black'>Add To Cart</button>
+    </div>
+
 </div>
     </div>
     );
