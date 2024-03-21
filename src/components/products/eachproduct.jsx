@@ -12,6 +12,7 @@ const EachProduct = () => {
     if(!nextItem){
         return null;
     }
+    
     return(
     <div className='w-full  flex  flex-row items-center sm:gap-10 md:gap-24 lg:gap-32 gap-10 justify-center mt-24  flex-wrap '>
 <div className='border-2 border-gray-200 rounded-lg p-4 w-56 h-56 shadow-sm  hover:text-white'>

@@ -679,5 +679,3 @@ export const featuredProducts = [
         quantity:0,
     },
 ];
-
-
