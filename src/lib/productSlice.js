@@ -1,7 +1,5 @@
 // productSlice.js
-
 import { createSlice } from "@reduxjs/toolkit";
-
 const getInitialSelectedProduct = () => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("selectedProduct")) {
         return JSON.parse(localStorage.getItem("selectedProduct"));
@@ -25,6 +23,5 @@ export const productSlice = createSlice({
         },
     },
 });
-
 export const { selectedProduct } = productSlice.actions;
 export default productSlice.reducer;

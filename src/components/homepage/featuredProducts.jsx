@@ -3,7 +3,7 @@
 import React from 'react';
 import { featuredProducts } from '@/data/categories';
 import Link from 'next/link';
-import { selectedProduct } from '@/lib/reducer';
+import { selectedProduct } from '@/lib/productSlice';
 import { useAppDispatch} from '@/lib/hooks';
 
 
