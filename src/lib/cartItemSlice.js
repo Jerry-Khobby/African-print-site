@@ -21,23 +21,54 @@ const cartSlice = createSlice({
   initialState: loadCartFromStorage(),
   reducers: {
     addToCart: (state, action) => {
-      const { id, name, group, price, imageUrl, description, quantity } = action.payload;
+      const { id, name, group, price, imageUrl, description } = action.payload;
+      // Check if the item already exists in the cart
       const existingItem = state.cartItems.find((item) => item.id === id);
       if (existingItem) {
-        // If the item is already in the cart, update the quantity
+        // If the item is already in the cart, do nothing (or update other properties if needed)
+        // In this case, we'll just return the state without changing anything
         existingItem.quantity++;
       } else {
-        // If the item is not in the cart, add it
+        // If the item is not in the cart, add it with a quantity of 0
         state.cartItems.push({
           id,
           name,
           group,
           price,
-          quantity,
+          quantity: 0, // Set initial quantity to 0
           imageUrl,
           description,
         });
       }
+
+      // Update localStorage (only in the browser)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('cart', JSON.stringify(state));
+      }
+    },
+    increaseQuantity: (state, action) => {
+      const { id } = action.payload;
+      const item = state.cartItems.find((item) => item.id === id);
+      
+      if (item) {
+        // Increase quantity by 1
+        item.quantity++;
+      }
+
+      // Update localStorage (only in the browser)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('cart', JSON.stringify(state));
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const { id } = action.payload;
+      const item = state.cartItems.find((item) => item.id === id);
+      
+      if (item && item.quantity > 0) {
+        // Decrease quantity by 1, but not below 0
+        item.quantity--;
+      }
+
       // Update localStorage (only in the browser)
       if (typeof window !== 'undefined') {
         localStorage.setItem('cart', JSON.stringify(state));
@@ -46,5 +77,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, clearCart, updateQuantity } = cartSlice.actions;
+export const { addToCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

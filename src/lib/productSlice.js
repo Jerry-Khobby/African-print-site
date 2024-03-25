@@ -21,26 +21,8 @@ export const productSlice = createSlice({
                 localStorage.setItem("selectedProduct", JSON.stringify(action.payload));
             }
         },
-        increaseQuantity: (state, action) => {
-            const { id } = action.payload;
-            const productToUpdate = state.selectedProduct.find(item => item.id === id);
-            if (productToUpdate) {
-                productToUpdate.quantity += 1;
-                // Update localStorage
-                localStorage.setItem("selectedProduct", JSON.stringify(state.selectedProduct));
-            }
-        },
-        decreaseQuantity: (state, action) => {
-            const { id } = action.payload;
-            const productToUpdate = state.selectedProduct.find(item => item.id === id);
-            if (productToUpdate && productToUpdate.quantity > 0) {
-                productToUpdate.quantity -= 1;
-                // Update localStorage
-                localStorage.setItem("selectedProduct", JSON.stringify(state.selectedProduct));
-            }
-        },
     },
 });
 
-export const { selectedProduct, increaseQuantity, decreaseQuantity } = productSlice.actions;
+export const { selectedProduct} = productSlice.actions;
 export default productSlice.reducer;
