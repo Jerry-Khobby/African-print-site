@@ -5,6 +5,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
 import { Box } from "@mui/material";
 import { useAppSelector } from '@/lib/hooks';
+import Link from 'next/link';
 
 const UserIcon = () => {
   //access the cart state from the redux store 
@@ -31,7 +32,9 @@ const UserIcon = () => {
         }}
       >
         <div className='relative'>
+        <Link href="/Cartpage">
         <GrCart size={23} color='black' />
+        </Link>
         <div className='absolute -top-1 right-3 flex items-center justify-center w-4 h-4 bg-red-500 text-white rounded-full text-xs'>
           {totalQuantity}
         </div>
@@ -50,7 +53,7 @@ const UserIcon = () => {
         }}
       >
         <Box>
-        <FaRegUserCircle size={23} color='black' />
+          <FaRegUserCircle size={23} color='black' />
         </Box>
       </div>
     </div>

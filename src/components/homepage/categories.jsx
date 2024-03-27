@@ -1,6 +1,7 @@
 import React from 'react'
 import { categories } from '@/data/categories';
 
+
 const CategorySection = () => {
     return ( 
         <div className='flex flex-column items-center justify-center mt-12'>
