@@ -69,8 +69,7 @@ export const featuredProducts = [
     id: 4,
     group: "Adinkra",
     description: "xyzeas",
-    imageUrl:
-      "https://i.pinimg.com/564x/8b/0b/ab/8b0babc8626bf4db8710ebd94df1170c.jpg",
+    imageUrl:"https://i.pinimg.com/564x/8b/0b/ab/8b0babc8626bf4db8710ebd94df1170c.jpg",
     price: 19.9,
     name: "Traditional cloth with symbols",
   },
@@ -78,8 +77,7 @@ export const featuredProducts = [
     id: 5,
     group: "Ankara",
     description: "xyzeas",
-    imageUrl:
-      "https://i.pinimg.com/564x/b7/fe/f5/b7fef56402d0784b36af0c565cb5bbe6.jpg",
+    imageUrl:"https://i.pinimg.com/564x/b7/fe/f5/b7fef56402d0784b36af0c565cb5bbe6.jpg",
     price: 19.9,
     name: "Spectacular african cloth",
   },
@@ -96,8 +94,7 @@ export const featuredProducts = [
     id: 7,
     group: "Briskis",
     description: "xyzeas",
-    imageUrl:
-      "https://i.pinimg.com/564x/52/fe/08/52fe086f592f073d97ff5400f8420583.jpg",
+    imageUrl:"https://i.pinimg.com/564x/52/fe/08/52fe086f592f073d97ff5400f8420583.jpg",
     price: 38.0,
     name: "A cloth for simple funeral",
   },

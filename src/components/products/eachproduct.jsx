@@ -28,7 +28,7 @@ const EachProduct = () => {
     };
 
     const handleAddToCart=()=>{
-        dispatch(addToCart());
+        dispatch(addToCart({id:nextItem.id}));
     }
 
     return (
@@ -49,8 +49,8 @@ const EachProduct = () => {
                         <CiSquareMinus size={20} cursor="pointer" onClick={handleDecreaseQuantity} />
                     </div>
                 </div>
-                <div className='flex items-center sm:items-center md:items-center lg:items-start flex-col justify-center'>
-                    <button className='bg-red-500 w-60 rounded-sm border-1 border-red-500 text-white text-sm h-6 hover:bg-black hover:border-black' onClick={handleAddToCart}>Add To Cart</button>
+                <div className='flex items-center sm:items-center md:items-center lg:items-start flex-col justify-center w-60 h-8 sm:h-8 lg:h-6 md:h-8 cursor-pointer' onClick={handleAddToCart}>
+                    <button className='bg-red-500 w-60 rounded-sm border-1 border-red-500 text-white text-sm h-8 sm:h-8 lg:h-6 md:h-8 hover:bg-black hover:border-black'>Add To Cart</button>
                 </div>
             </div>
         </div>
