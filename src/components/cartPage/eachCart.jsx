@@ -2,9 +2,10 @@
 import React from 'react';
 import { useAppSelector } from '@/lib/hooks';
 import dynamic from 'next/dynamic';
+import { useSelector } from 'react-redux';
 
 const EachCartItemComponent = () => {
-  const cartItems = useAppSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   // Check if cartItems is an empty array
   if (!cartItems || cartItems.length === 0) {
@@ -27,7 +28,7 @@ const EachCartItemComponent = () => {
               {/* Render item image here */}
             </div>
             <div>
-              <h2>{item.quantity}</h2>
+              <h2>{item.name}</h2>
             </div>
             <div>
               {/* Quantity buttons (e.g., +1, -1) */}
