@@ -13,8 +13,7 @@ const UserIcon = () => {
   //calculate the total quantity of all items present in the cart from the redux store 
   const totalQuantity=cartItems.reduce((total,item)=>total+item.quantity,0);
   return (
-    <div
-      style={{
+    <div style={{
         display: "flex",
         justifyContent: "flex-end",
         gap: '10px'
