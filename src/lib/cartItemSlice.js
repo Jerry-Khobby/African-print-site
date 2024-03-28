@@ -35,7 +35,7 @@ const cartSlice = createSlice({
           name,
           group,
           price,
-          quantity: 0, // Set initial quantity to 0
+          quantity: 1, // Set initial quantity to 0
           imageUrl,
           description,
         });

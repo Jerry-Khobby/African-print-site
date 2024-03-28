@@ -3,8 +3,9 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CiSquarePlus, CiSquareMinus } from 'react-icons/ci';
 import { addToCart, increaseQuantity, decreaseQuantity } from '@/lib/cartItemSlice';
+import dynamic from 'next/dynamic';
 
-const EachProduct = () => {
+const EachProductComponent= () => {
     const nextItem = useSelector((state) => state.product.selectedProduct);
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
@@ -28,13 +29,21 @@ const EachProduct = () => {
     };
 
     const handleAddToCart=()=>{
-        dispatch(addToCart({id:nextItem.id}));
+        dispatch(addToCart({id: nextItem.id,
+            name: nextItem.name,
+            group: nextItem.group,
+            price: nextItem.price,
+            imageUrl: nextItem.imageUrl,
+            description: nextItem.description,
+        }));
     }
+    // I want to grab the quantity of an item 
+    const itemQuantity=getItemQuantity();
 
     return (
         <div className='w-full flex flex-row items-center sm:gap-10 md:gap-24 lg:gap-32 gap-10 justify-center mt-24 flex-wrap'>
             <div className='border-2 border-gray-200 rounded-lg p-4 w-56 h-56 shadow-sm hover:text-white'>
-               {/*  {nextItem.imageUrl && <img src={nextItem.imageUrl} alt="The image for the product" className="w-52 h-48 rounded-sm flex items-center justify-center self-center" />} */}
+            {nextItem.imageUrl && <img src={nextItem.imageUrl} alt="The image for the product" className="w-52 h-48 rounded-sm flex items-center justify-center self-center" />}
             </div>
             <div>
                 <div className='flex items-center sm:items-center md:items-center lg:items-start flex-col justify-center'>
@@ -49,12 +58,21 @@ const EachProduct = () => {
                         <CiSquareMinus size={20} cursor="pointer" onClick={handleDecreaseQuantity} />
                     </div>
                 </div>
-                <div className='flex items-center sm:items-center md:items-center lg:items-start flex-col justify-center w-60 h-8 sm:h-8 lg:h-6 md:h-8 cursor-pointer' onClick={handleAddToCart}>
-                    <button className='bg-red-500 w-60 rounded-sm border-1 border-red-500 text-white text-sm h-8 sm:h-8 lg:h-7 md:h-8 hover:bg-black hover:border-black'>Add To Cart</button>
+                <div className='flex items-center sm:items-center md:items-center lg:items-start flex-col justify-center w-60 h-8 sm:h-8 lg:h-6 md:h-8 cursor-pointer'>
+                {itemQuantity === 1 ? (
+                        <button className='bg-blue-200 w-60 rounded-sm border-1 border-red-500 text-white text-sm h-8 sm:h-8 lg:h-7 md:h-8 cursor-not-allowed' disabled>
+                            Add To Cart
+                        </button>
+                    ) : (
+                        <button className='bg-red-500 w-60 rounded-sm border-1 border-red-500 text-white text-sm h-8 sm:h-8 lg:h-7 md:h-8 hover:bg-black hover:border-black' onClick={handleAddToCart}>
+                            Add To Cart
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
     );
 };
 
+const EachProduct=dynamic(()=>Promise.resolve(EachProductComponent),{ssr:false});
 export default EachProduct;

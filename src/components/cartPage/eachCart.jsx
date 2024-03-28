@@ -1,50 +1,50 @@
-
 "use client"
-import React from 'react'
+import React from 'react';
 import { useAppSelector } from '@/lib/hooks';
+import dynamic from 'next/dynamic';
 
+const EachCartItemComponent = () => {
+  const cartItems = useAppSelector((state) => state.cart.cartItems);
 
-const EachCartItem = () => {
-
-  //I want to access all the elements that is in the redux store 
-  const cartItems=useAppSelector((state)=>state.cart.cartItems);
-
-
-  return (  
-    //we have to first check if the place is empty then we display something else 
-    <div className='w-full flex flex-col items-center sm:gap-10 md:gap-24 lg:gap-32 gap-10 justify-center mt-24 h-full flex-wrap'>
-      <h2 className='flex items-center justify-center text-2xl font-sans font-semibold text-center'>Cart Items</h2>
-      {
-        cartItems.length===0?(
-<h6 className='text-center'>
-  Your Cart is Empty);
-</h6>
-):null}
-{cartItems.map((item)=>(
-  <div key={item.id} className='flex flex-col items-center'>
-    <div className='flex items-center g-4 mb-5 p-4 rounded-md justify-center flex-row'>
-      <div>
-        {/** I think the image will come here  */}
-        <img alt='' src={item.imageUrl}/>
+  // Check if cartItems is an empty array
+  if (!cartItems || cartItems.length === 0) {
+    return (
+      <div className="w-full flex items-center justify-center mt-24">
+        <h2 className="text-2xl font-sans font-semibold">Your cart is empty);.</h2>
       </div>
-      <div>
-        {/** The name of the item and the description will come here  */}
-      </div>
-      <div>
-        {/** This div will contain the - 1 and the + of the items  */}
-      </div>
-      <div>
-        {/** This last div will contain the trash can icon  */}
-      </div>
+    );
+  }
 
-    </div>
-
-  </div>
-))}
-{/** A component of the clear button  */}
-{/** a component of the cart summary will be here  */}
+  return (
+    <div className="w-full flex flex-col items-center sm:gap-10 md:gap-24 lg:gap-32 gap-10 justify-center mt-24 h-full flex-wrap">
+      <h2 className="flex items-center justify-center text-2xl font-sans font-semibold text-center">
+        Cart Items
+      </h2>
+      {cartItems.map((item) => (
+        <div key={item.id} className="flex flex-col items-center">
+          <div className="flex items-center gap-4 mb-5 p-4 rounded-md justify-center flex-row">
+            <div>
+              {/* Render item image here */}
+            </div>
+            <div>
+              <h2>{item.quantity}</h2>
+            </div>
+            <div>
+              {/* Quantity buttons (e.g., +1, -1) */}
+            </div>
+            <div>
+              {/* Trash can icon */}
+            </div>
+          </div>
+        </div>
+      ))}
+      {/* Component for Clear Button */}
+      {/* Component for Cart Summary */}
     </div>
   );
-}
- 
+};
+
+
+const EachCartItem = dynamic(() => Promise.resolve(EachCartItemComponent), { ssr: false });
+
 export default EachCartItem;
