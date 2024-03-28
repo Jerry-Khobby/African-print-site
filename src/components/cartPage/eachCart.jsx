@@ -29,6 +29,9 @@ const EachCartItemComponent = () => {
             </div>
             <div>
               <h2>{item.name}</h2>
+              <h2>{item.description}</h2>
+              <h3>{item.price}</h3>
+              <h2>{item.group}</h2>
             </div>
             <div>
               {/* Quantity buttons (e.g., +1, -1) */}

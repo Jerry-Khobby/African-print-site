@@ -29,7 +29,14 @@ const EachProductComponent= () => {
     };
 
     const handleAddToCart=()=>{
-        dispatch(addToCart(nextItem));
+        dispatch(addToCart({
+            id: nextItem.id,
+            name: nextItem.name,
+            group: nextItem.group,
+            price: nextItem.price,
+            imageUrl: nextItem.imageUrl,
+            description: nextItem.description,
+        }));
     }
     // I want to grab the quantity of an item 
     const itemQuantity=getItemQuantity();
