@@ -4,7 +4,7 @@ import { categories } from '@/data/categories';
 
 const CategorySection = () => {
     return ( 
-        <div className='flex flex-column items-center justify-center mt-12'>
+        <div className='flex flex-column items-center justify-center mt-12 h-full'>
             <div>
                 <h1 className='text-3xl font-mono font-semibold text-center'>Product Categories</h1>
             </div>

@@ -35,7 +35,7 @@ const EachCartItemComponent = () => {
   }
 
   return (
-    <div className="w-full flex flex-col items-center sm:gap-5 md:gap-5 lg:gap-5 gap-5 justify-center mt-24 h-full flex-wrap">
+    <div className="w-full flex flex-col items-center sm:gap-5 md:gap-5 lg:gap-5 gap-5 justify-center  h-full flex-wrap">
       <h2 className="flex items-center justify-center text-3xl font-sans font-semibold text-center">
         Cart Items
       </h2>

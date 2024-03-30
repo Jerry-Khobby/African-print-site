@@ -59,7 +59,7 @@ const EachProductComponent= () => {
                         <CiSquareMinus size={20} cursor="pointer" onClick={handleDecreaseQuantity} />
                     </div>
                 </div>
-                <div className='flex items-center sm:items-center md:items-center lg:items-start flex-col justify-center w-60 h-8 sm:h-8 lg:h-6 md:h-8 cursor-pointer'>
+                <div className='flex items-center sm:items-center md:items-center lg:items-start flex-col justify-center  cursor-pointer'>
                 {itemQuantity === 1 ? (
                         <button className='bg-blue-200 w-60 rounded-sm border-1 border-blue-200 text-white text-sm h-8 sm:h-8 lg:h-7 md:h-8 cursor-not-allowed' disabled>
                             Add To Cart
