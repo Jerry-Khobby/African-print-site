@@ -12,7 +12,7 @@ const HomeMaster = () => {
             <Banner />
             <CategorySection/>
             <FeaturedProducts/> 
-            <FooterComponent />
+            <FooterComponent  className="absolute left-0 bottom-0"/>
         </div>
      );
 }

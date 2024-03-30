@@ -9,7 +9,7 @@ const MainCartPage = () => {
     <div>
 <Nav/>
 <EachCartItem/>
-<FooterComponent/>
+<FooterComponent className="absolute left-0 bottom-0"/>
     </div>
    );
 }

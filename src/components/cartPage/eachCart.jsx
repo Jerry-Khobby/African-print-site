@@ -2,10 +2,9 @@
 import React from 'react';
 import { useAppSelector } from '@/lib/hooks';
 import dynamic from 'next/dynamic';
-import { useSelector } from 'react-redux';
 
 const EachCartItemComponent = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useAppSelector((state) => state.cart.cartItems);
 
   // Check if cartItems is an empty array
   if (!cartItems || cartItems.length === 0) {
@@ -23,22 +22,12 @@ const EachCartItemComponent = () => {
       </h2>
       {cartItems.map((item) => (
         <div key={item.id} className="flex flex-col items-center">
-          <div className="flex items-center gap-4 mb-5 p-4 rounded-md justify-center flex-row">
-            <div>
-              {/* Render item image here */}
-            </div>
-            <div>
-              <h2>{item.name}</h2>
-              <h2>{item.description}</h2>
-              <h3>{item.price}</h3>
-              <h2>{item.group}</h2>
-            </div>
-            <div>
-              {/* Quantity buttons (e.g., +1, -1) */}
-            </div>
-            <div>
-              {/* Trash can icon */}
-            </div>
+          <div className='flex items-center mb-5 p-4 rounded-sm hover:bg-slate-300 gap-4'>
+<div>{/** the image will be here  */}</div>
+<div>
+  <h2>{item.name}</h2>
+  <h3>This cloth belongs to the {item.group} group</h3>
+</div>
           </div>
         </div>
       ))}
