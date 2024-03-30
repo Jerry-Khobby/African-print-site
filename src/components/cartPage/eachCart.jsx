@@ -5,7 +5,8 @@ import dynamic from "next/dynamic";
 import { FaTrash } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import { GoPlus } from "react-icons/go";
-import { increaseQuantity, decreaseQuantity } from "@/lib/cartItemSlice";
+import { increaseQuantity, decreaseQuantity,removeItem } from "@/lib/cartItemSlice";
+
 
 const EachCartItemComponent = () => {
   const cartItems = useAppSelector((state) => state.cart.cartItems);
@@ -14,7 +15,7 @@ const EachCartItemComponent = () => {
   // Check if cartItems is an empty array
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="w-full flex items-center justify-center mt-24">
+      <div className="w-full flex items-center justify-center mt-24 h-full">
         <h2 className="text-2xl font-sans font-semibold">
           Your cart is empty);.
         </h2>
@@ -28,6 +29,10 @@ const EachCartItemComponent = () => {
   const handleDecreaseQuantity = (id) => {
     dispatch(decreaseQuantity({ id }));
   };
+
+  const handleRemoveItem=(id)=>{
+    dispatch(removeItem({ id }));
+  }
 
   return (
     <div className="w-full flex flex-col items-center sm:gap-5 md:gap-5 lg:gap-5 gap-5 justify-center mt-24 h-full flex-wrap">
@@ -71,7 +76,7 @@ const EachCartItemComponent = () => {
               </div>
             </div>
             <div className="cursor-pointer">
-              <FaTrash />
+              <FaTrash onClick={()=>handleRemoveItem(item.id)} />
             </div>
           </div>
         </div>

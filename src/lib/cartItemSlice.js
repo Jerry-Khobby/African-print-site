@@ -71,15 +71,23 @@ const cartSlice = createSlice({
           state.cartItems=state.cartItems.filter((item)=>item.id!==id);
         }
       }
-
-
       // Update localStorage (only in the browser)
       if (typeof window !== 'undefined') {
         localStorage.setItem('cart', JSON.stringify(state));
       }
     },
+    removeItem:(state,action)=>{
+      const {id}=action.payload;
+      const item=state.cartItems.find((item)=>item.id===id);
+      if(item){
+        state.cartItems=state.cartItems.filter((item)=>item.id!==id);
+      }
+      if(typeof window !=='undefined'){
+        localStorage.setItem('cart', JSON.stringify(state));
+      }
+    }
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
+export const { addToCart, increaseQuantity, decreaseQuantity,removeItem } = cartSlice.actions;
 export default cartSlice.reducer;
