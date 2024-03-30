@@ -67,7 +67,11 @@ const cartSlice = createSlice({
       if (item && item.quantity > 0) {
         // Decrease quantity by 1, but not below 0
         item.quantity--;
+        if(item.quantity===0){
+          state.cartItems=state.cartItems.filter((item)=>item.id!==id);
+        }
       }
+
 
       // Update localStorage (only in the browser)
       if (typeof window !== 'undefined') {
