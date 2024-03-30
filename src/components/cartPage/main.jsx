@@ -1,11 +1,13 @@
 import React from 'react'
 import EachCartItem from './eachCart';
+import FeaturedProducts from '../homepage/featuredProducts';
 
 
 const MainCartPage = () => {
   return ( 
-    <div style={{height:'100vh'}}>
+    <div>
 <EachCartItem/>
+<FeaturedProducts/>
     </div>
    );
 }

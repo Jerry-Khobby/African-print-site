@@ -5,7 +5,7 @@ import FeaturedProducts from './featuredProducts';
 
 const HomeMaster = () => {
     return ( 
-        <div className='h-full'>
+        <div>
             <Banner />
             <CategorySection/>
             <FeaturedProducts/> 
