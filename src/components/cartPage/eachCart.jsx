@@ -15,10 +15,17 @@ const EachCartItemComponent = () => {
   // Check if cartItems is an empty array
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="w-full flex items-center justify-center mt-24 h-full">
-        <h2 className="text-2xl font-sans font-semibold">
+      <div className="w-full flex items-center justify-center mt-24 h-full flex-col gap-24">
+        <h2 className="text-3xl font-sans font-semibold">
           Your cart is empty);.
         </h2>
+        <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm">
+        <h2>CART SUMMARY</h2>
+        <h5>Subtotal ${}</h5>
+        <div>
+          <button>CHECKOUT ${}</button>
+        </div>
+      </div>
       </div>
     );
   }
@@ -79,6 +86,13 @@ const EachCartItemComponent = () => {
       ))}
       {/* Component for Clear Button */}
       {/* Component for Cart Summary */}
+      <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm">
+        <h2>CART SUMMARY</h2>
+        <h5>Subtotal ${}</h5>
+        <div>
+          <button>CHECKOUT ${}</button>
+        </div>
+      </div>
     </div>
   );
 };
