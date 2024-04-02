@@ -12,6 +12,20 @@ const EachCartItemComponent = () => {
   const cartItems = useAppSelector((state) => state.cart.cartItems);
   const dispatch = useAppDispatch();
 
+
+  //Function to calculate total price for each item 
+const calculateTotalPrice = (item) =>{
+return item.price* item.quantity;
+  }
+  // function to calculate total Price or overall  price 
+  const calculateSubtotalPrice =()=>{
+    let subtotal=0;
+    cartItems.forEach((item)=>{
+      subtotal += calculateTotalPrice(item);
+    })
+    return subtotal;
+  }
+
   // Check if cartItems is an empty array
   if (!cartItems || cartItems.length === 0) {
     return (
@@ -19,11 +33,11 @@ const EachCartItemComponent = () => {
         <h2 className="text-3xl font-sans font-semibold">
           Your cart is empty);.
         </h2>
-        <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm">
+        <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm gap-2  w-64 sm:w-64 lg:w-96 md:w-64  mx-5">
         <h2>CART SUMMARY</h2>
-        <h5>Subtotal ${}</h5>
+        <h5>Subtotal $0.00</h5>
         <div>
-          <button>CHECKOUT ${}</button>
+          <button>CHECKOUT $0.00</button>
         </div>
       </div>
       </div>
@@ -63,18 +77,21 @@ const EachCartItemComponent = () => {
                 This cloth belongs to the {item.group} group
               </h2>
               <h4 className="text-lg font-mono font-medium text-gray-400 text-center sm:text-center lg:text-start md:text-center hover:text-black">
-                ${item.price}
+                Price: ${item.price}
+              </h4>
+              <h4 className="text-lg font-mono font-medium text-center sm:text-center lg:text-start md:text-center text-black">
+                Total Amount for Item Added: ${calculateTotalPrice(item)}
               </h4>
               <h5 className="text-sm font-mono font-medium text-center sm:text-center lg:text-start md:text-center">
                 {item.description}
               </h5>
             </div>
             <div className="flex flex-row sm:flex-row md:flex-row lg:flex-col  items-center gap-10 sm:gap-10 md:gap-10 lg:gap-4 ">
-              <div className="cursor-pointer border-1 border-black border-solid h-7 w-12 items-center flex justify-center rounded-sm">
+              <div className="cursor-pointer border-1 border-black border-solid h-7 w-12 items-center flex justify-center rounded-sm transition duration-300">
                 <FiMinus onClick={() => handleDecreaseQuantity(item.id)} />
               </div>
               <div>{item.quantity}</div>
-              <div className="cursor-pointer border-1 border-black border-solid h-7 w-12 items-center flex justify-center rounded-sm">
+              <div className="cursor-pointer border-1 border-black border-solid h-7 w-12 items-center flex justify-center rounded-sm transition duration-300">
                 <GoPlus onClick={() => handleIncreaseQuantity(item.id)} />
               </div>
             </div>
@@ -86,11 +103,13 @@ const EachCartItemComponent = () => {
       ))}
       {/* Component for Clear Button */}
       {/* Component for Cart Summary */}
-      <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm">
-        <h2>CART SUMMARY</h2>
-        <h5>Subtotal ${}</h5>
-        <div>
-          <button>CHECKOUT ${}</button>
+      <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm gap-2  w-64 sm:w-64 lg:w-96 md:w-64  mx-5 mt-16 h-48">
+        <h2 className="text-lg font-mono font-semibold pt-2">CART SUMMARY</h2>
+        <h5 className="text-lg font-mono font-medium">Subtotal ${calculateSubtotalPrice()}</h5>
+        <div className="w-full p-3  flex items-center justify-center">
+          <button className="border-2 border-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition duration-300">
+            CHECKOUT ${calculateSubtotalPrice()}
+          </button>
         </div>
       </div>
     </div>
