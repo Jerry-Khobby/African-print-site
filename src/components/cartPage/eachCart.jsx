@@ -35,13 +35,13 @@ const EachCartItemComponent = () => {
   }
 
   return (
-    <div className="relative h-full w-full flex flex-col items-center justify-center">
-      <h2 className="flex items-center justify-center text-3xl font-sans font-semibold text-center">
+    <div className="relative h-full w-full flex flex-col items-center justify-center mt-24">
+      <h2 className="flex items-center justify-center text-3xl font-sans font-semibold text-center mb-2">
         Cart Items
       </h2>
       {cartItems.map((item) => (
         <div key={item.id} className="flex flex-col items-center justify-center gap-2">
-          <div className="flex items-center justify-center flex-col lg:flex-row md:flex-col sm:flex-col gap-5 mx-2 sm:mx-2 md:mx-2 lg:mx-0 rounded-md hover:bg-gray-400 p-4 mb-5">
+          <div className="flex items-center justify-center flex-col lg:flex-row md:flex-col sm:flex-col gap-5 mx-2 sm:mx-2 md:mx-2 lg:mx-0 rounded-md hover:bg-gray-300 p-4 mb-5">
             <div className="rounded-full">
               <img src={item.imageUrl}
                 alt=""
@@ -62,7 +62,7 @@ const EachCartItemComponent = () => {
                 {item.description}
               </h5>
             </div>
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-row sm:flex-row md:flex-row lg:flex-col  items-center gap-10 sm:gap-10 md:gap-10 lg:gap-4 ">
               <div className="cursor-pointer border-1 border-black border-solid h-7 w-12 items-center flex justify-center rounded-sm">
                 <FiMinus onClick={() => handleDecreaseQuantity(item.id)} />
               </div>
