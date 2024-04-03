@@ -15,7 +15,7 @@ const EachCartItemComponent = () => {
 
   //Function to calculate total price for each item 
 const calculateTotalPrice = (item) =>{
-return item.price* item.quantity;
+return Math.round((item.price* item.quantity)*100)/100;
   }
   // function to calculate total Price or overall  price 
   const calculateSubtotalPrice =()=>{
@@ -23,7 +23,7 @@ return item.price* item.quantity;
     cartItems.forEach((item)=>{
       subtotal += calculateTotalPrice(item);
     })
-    return subtotal;
+    return Math.round(subtotal*100)/100;
   }
 
   // Check if cartItems is an empty array
@@ -33,13 +33,6 @@ return item.price* item.quantity;
         <h2 className="text-3xl font-sans font-semibold">
           Your cart is empty);.
         </h2>
-        <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm gap-2  w-64 sm:w-64 lg:w-96 md:w-64  mx-5">
-        <h2>CART SUMMARY</h2>
-        <h5>Subtotal $0.00</h5>
-        <div>
-          <button>CHECKOUT $0.00</button>
-        </div>
-      </div>
       </div>
     );
   }
