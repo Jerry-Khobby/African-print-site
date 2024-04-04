@@ -1,15 +1,23 @@
 "use client";
-import React from "react";
+import React,{useEffect} from "react";
 import { featuredProducts } from "@/data/categories";
 import Link from "next/link";
 import { selectedProduct } from "@/lib/productSlice";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch,useAppSelector } from "@/lib/hooks";
 
 const FeaturedProducts = () => {
   const dispatch = useAppDispatch();
-  //rendering the first twelve items in the arrays
-  const randomItems = featuredProducts.slice(0, 12);
-  // event handler for when  a product is clicked
+
+    //rendering the first twelve items in the arrays
+    const randomItems = featuredProducts.slice(0, 12);
+    // event handler for when  a product is clicked
+
+  const searchItem = useAppSelector((state) => state.cart.searchItem)||'';
+  const filteredProducts = randomItems.filter((product) =>
+    product.name.toLowerCase().includes(searchItem.toLowerCase())
+  );
+
+
 
   return (
     <div className="flex flex-col items-center justify-center mt-20">
@@ -20,7 +28,7 @@ const FeaturedProducts = () => {
       </div>
       <div>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2 justify-items-center cursor-pointer">
-          {randomItems.map((randomItem) => (
+          {filteredProducts.map((randomItem) => (
             <div
               className="border-2 border-gray-200 rounded-lg p-4 w-48 h-48 shadow-sm hover:bg-black hover:text-white"
               key={randomItem.id}

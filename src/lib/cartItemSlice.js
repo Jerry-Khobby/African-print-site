@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 // Define your initial state
 const initialState = {
   cartItems: [], // Each cart item should have id, name, image, price, and quantity.
+  searchItem:null,
 };
 
 // Load cart data from localStorage if available
@@ -85,9 +86,12 @@ const cartSlice = createSlice({
       if(typeof window !=='undefined'){
         localStorage.setItem('cart', JSON.stringify(state));
       }
+    },
+    setSearchItem:(state,action)=>{
+      state.searchItem=action.payload;
     }
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity,removeItem } = cartSlice.actions;
+export const { addToCart, increaseQuantity, decreaseQuantity,removeItem,setSearchItem } = cartSlice.actions;
 export default cartSlice.reducer;

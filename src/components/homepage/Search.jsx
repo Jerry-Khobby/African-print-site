@@ -1,10 +1,20 @@
 'use client'
 import React, { useState } from 'react';
 import { Button, Tooltip } from '@mui/material';
+import { useAppDispatch} from '@/lib/hooks';
+import { setSearchItem } from '@/lib/cartItemSlice';
 
 const Search = () => {
+  
+  const dispatch=useAppDispatch();
   const [searchValue, setSearchValue] = useState("");
 
+  //a function to handle the search 
+  const handleSearch = (e) => {
+    const inputValue=e.target.value;
+    setSearchValue(inputValue);
+    dispatch(setSearchItem(searchValue));
+  };
   return (
     <div style={{
       display: "flex",
@@ -31,6 +41,7 @@ const Search = () => {
       />
       <Tooltip title='Search feature under construction' arrow>
         <Button
+        onClick={handleSearch}
           style={{
             width: "80px",
             borderRadius: "0 7px 7px 0",  // Adjusted border radius
