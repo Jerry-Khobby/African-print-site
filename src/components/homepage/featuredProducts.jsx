@@ -1,5 +1,5 @@
 "use client";
-import React,{useEffect} from "react";
+import React from "react";
 import { featuredProducts } from "@/data/categories";
 import Link from "next/link";
 import { selectedProduct } from "@/lib/productSlice";

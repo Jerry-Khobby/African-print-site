@@ -9,12 +9,20 @@ const Search = () => {
   const dispatch=useAppDispatch();
   const [searchValue, setSearchValue] = useState("");
 
-  //a function to handle the search 
-  const handleSearch = (e) => {
-    const inputValue=e.target.value;
-    setSearchValue(inputValue);
-    dispatch(setSearchItem(searchValue));
+  // Function to handle the search when "Enter" key is pressed
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      dispatch(setSearchItem(searchValue));
+    }
   };
+
+  // Function to handle the live search as you type
+  const handleSearch = (e) => {
+    const inputValue = e.target.value;
+    setSearchValue(inputValue);
+    dispatch(setSearchItem(inputValue)); // Update searchItem directly with the input value
+  };
+
   return (
     <div style={{
       display: "flex",
@@ -26,7 +34,8 @@ const Search = () => {
     }}>
       <input
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={handleSearch} // Call handleSearch on every input change
+        onKeyPress={handleKeyPress}
         style={{
           padding: "0 12px",
           height: "100%",
@@ -35,13 +44,12 @@ const Search = () => {
           borderRadius: "7px 0 0 7px",  // Adjusted border radius
           outline: "none",
           borderRight:'none'
-
         }}
         placeholder='Enter what you want to search here'
       />
       <Tooltip title='Search feature under construction' arrow>
         <Button
-        onClick={handleSearch}
+          onClick={() => dispatch(setSearchItem(searchValue))} // Update searchItem on button click
           style={{
             width: "80px",
             borderRadius: "0 7px 7px 0",  // Adjusted border radius
@@ -56,7 +64,6 @@ const Search = () => {
             height:'100%',
           }}
         >
-
           Search
         </Button>
       </Tooltip>
