@@ -47,7 +47,7 @@ const Search = () => {
         }}
         placeholder='Enter what you want to search here'
       />
-      <Tooltip title='Search feature under construction' arrow>
+      <Tooltip title='Click on it to search for an item of your choice' arrow>
         <Button
           onClick={() => dispatch(setSearchItem(searchValue))} // Update searchItem on button click
           style={{

@@ -4,6 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   cartItems: [], // Each cart item should have id, name, image, price, and quantity.
   searchItem:null,
+  productAdded:false, // this to help me display a green background light 
+
 };
 
 // Load cart data from localStorage if available
@@ -40,8 +42,8 @@ const cartSlice = createSlice({
           imageUrl,
           description,
         });
+        state.productAdded=true;
       }
-
       // Update localStorage (only in the browser)
       if (typeof window !== 'undefined') {
         localStorage.setItem('cart', JSON.stringify(state));
@@ -89,9 +91,9 @@ const cartSlice = createSlice({
     },
     setSearchItem:(state,action)=>{
       state.searchItem=action.payload;
-    }
+    },
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity,removeItem,setSearchItem } = cartSlice.actions;
+export const { addToCart, increaseQuantity, decreaseQuantity,removeItem,setSearchItem, } = cartSlice.actions;
 export default cartSlice.reducer;
