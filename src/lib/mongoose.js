@@ -6,7 +6,7 @@ export async function initiMongoose() {
           console.log("MongoDB connection already established");
           return mongoose.connection;
       }
-      return await mongoose.connect("mongodb+srv://jerrymardeburg:hg1Cevqzis54qEYm@cluster0.1vx980y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+      return await mongoose.connect(process.env.MONGODB_URL, {
           useNewUrlParser: true,
           useUnifiedTopology: true
       });
