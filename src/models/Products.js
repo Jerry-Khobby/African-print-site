@@ -1,5 +1,9 @@
-import { model, Schema } from "mongoose";
+import mongoose,{ model, Schema } from "mongoose";
 
+// Check if the model already exists before defining it
+const existingProductModel = mongoose.models["Products"];
+
+// Define Product schema
 const ProductSchema = new Schema({
     group: String,
     description: String,
@@ -27,6 +31,5 @@ const ProductSchema = new Schema({
     }
 });
 
-const Product = model("Product", ProductSchema);
-
-export default Product;
+// Define Product model only if it doesn't already exist
+export const Product = existingProductModel || model("Products", ProductSchema);
