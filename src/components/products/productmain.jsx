@@ -3,7 +3,6 @@ import React from 'react'
 import FeaturedProducts from '@/components/homepage/featuredProducts';
 import EachProduct from './eachproduct';
 import NotificationComponent from '../homepage/notification';
-import { useAppDispatch,useAppSelector } from '@/lib/hooks';
 
 
 const SingleProducts = () => {
@@ -12,7 +11,7 @@ const SingleProducts = () => {
 
     return ( 
         <div>
-        {/* <NotificationComponent/> */}
+        <NotificationComponent/>
         <EachProduct/>
         <FeaturedProducts/>
         </div>

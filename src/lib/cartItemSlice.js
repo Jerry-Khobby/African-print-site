@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   cartItems: [], // Each cart item should have id, name, image, price, and quantity.
   searchItem:null,
-  productAdded:false, // this to help me display a green background light 
+  notification:{show:false, message:''}, // this to help me display a green background light 
 
 };
 
@@ -42,7 +42,7 @@ const cartSlice = createSlice({
           imageUrl,
           description,
         });
-        state.productAdded=true;
+       state.notification={show:true,message:'Product added to cart successfully'};
       }
       // Update localStorage (only in the browser)
       if (typeof window !== 'undefined') {
@@ -88,12 +88,16 @@ const cartSlice = createSlice({
       if(typeof window !=='undefined'){
         localStorage.setItem('cart', JSON.stringify(state));
       }
+     state.notification = { show: true, message: 'Product removed from cart successfully' };
     },
     setSearchItem:(state,action)=>{
       state.searchItem=action.payload;
     },
+    hideNotification: (state) => {
+      state.notification = { show: false, message: '' };
+    },
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity,removeItem,setSearchItem, } = cartSlice.actions;
+export const { addToCart, increaseQuantity, decreaseQuantity,removeItem,setSearchItem,hideNotification } = cartSlice.actions;
 export default cartSlice.reducer;
