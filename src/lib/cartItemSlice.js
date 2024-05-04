@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   cartItems: [], // Each cart item should have id, name, image, price, and quantity.
   searchItem:null,
-  notification:{show:false, message:''}, // this to help me display a green background light 
+  notification:true, // this to help me display a green background light 
+  message:'',
 
 };
 
@@ -33,6 +34,8 @@ const cartSlice = createSlice({
         existingItem.quantity++;
       } else {
         // If the item is not in the cart, add it with a quantity of 0
+        state.notification=true;
+        state.message="Product added to cart successfully";
         state.cartItems.push({
           id,
           name,
@@ -42,7 +45,7 @@ const cartSlice = createSlice({
           imageUrl,
           description,
         });
-       state.notification={show:true,message:'Product added to cart successfully'};
+       
       }
       // Update localStorage (only in the browser)
       if (typeof window !== 'undefined') {
@@ -84,17 +87,19 @@ const cartSlice = createSlice({
       const item=state.cartItems.find((item)=>item.id===id);
       if(item){
         state.cartItems=state.cartItems.filter((item)=>item.id!==id);
+        state.notification=true;
+        state.message="Product removed from cart successfully";
       }
       if(typeof window !=='undefined'){
         localStorage.setItem('cart', JSON.stringify(state));
       }
-     state.notification = { show: true, message: 'Product removed from cart successfully' };
     },
     setSearchItem:(state,action)=>{
       state.searchItem=action.payload;
     },
     hideNotification: (state) => {
-      state.notification = { show: false, message: '' };
+      state.notification=false;
+      state.message=" ";
     },
   },
 });

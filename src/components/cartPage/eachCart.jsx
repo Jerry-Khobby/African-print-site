@@ -94,8 +94,6 @@ return Math.round((item.price* item.quantity)*100)/100;
           </div>
         </div>
       ))}
-      {/* Component for Clear Button */}
-      {/* Component for Cart Summary */}
       <div className="items-center flex flex-col justify-center bg-gray-300 rounded-sm gap-2  w-64 sm:w-64 lg:w-96 md:w-64  mx-5 mt-16 h-48">
         <h2 className="text-lg font-mono font-semibold pt-2">CART SUMMARY</h2>
         <h5 className="text-lg font-mono font-medium">Subtotal ${calculateSubtotalPrice()}</h5>
