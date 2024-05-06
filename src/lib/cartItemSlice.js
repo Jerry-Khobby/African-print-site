@@ -75,6 +75,8 @@ const cartSlice = createSlice({
         item.quantity--;
         if(item.quantity===0){
           state.cartItems=state.cartItems.filter((item)=>item.id!==id);
+          state.notification=true;
+          state.message="Product removed from cart successfully";
         }
       }
       // Update localStorage (only in the browser)

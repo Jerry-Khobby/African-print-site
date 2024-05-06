@@ -6,6 +6,7 @@ import { FaTrash } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import { GoPlus } from "react-icons/go";
 import { increaseQuantity, decreaseQuantity,removeItem } from "@/lib/cartItemSlice";
+import { Link } from "@mui/material";
 
 
 const EachCartItemComponent = () => {
@@ -99,7 +100,10 @@ return Math.round((item.price* item.quantity)*100)/100;
         <h5 className="text-lg font-mono font-medium">Subtotal ${calculateSubtotalPrice()}</h5>
         <div className="w-full p-3  flex items-center justify-center">
           <button className="border-2 border-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition duration-300">
+            <Link href="/Cartpage/payment">
             CHECKOUT ${calculateSubtotalPrice()}
+            </Link>
+           
           </button>
         </div>
       </div>
