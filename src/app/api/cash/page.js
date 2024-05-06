@@ -2,12 +2,13 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 
 
+
 export default  async function POST(req){
 if(req.method!=="POST"){
 return NextResponse.json({message:'Unsupported method'},{status:405})
 }
 try{
-  const {email,amount}= await req.json();
+  const {email,amount}= await req.body;
   const secretKey="sk_test_fef51ce6992d70124e0ff4fe8e429612d73a0fc4";
 
   
@@ -22,22 +23,28 @@ const data={
   currency:"GHS",
 };
 
-const response=await axios.post(
+const response= await fetch(
   'https://api.paystack.co/transaction/initialize',
-  data,
   {
     headers:{
       Authorization:`Bearer${secretKey}`,
       'Content-Type': 'application/json',
-    }
+    },
+    body: JSON.stringify(data),
   }
 );
 
-return NextResponse.json(response.data.toString());
+if (!response.ok) {
+  throw new Error('An error occurred while processing the payment');
+}
+
+const responseData = await response.json();
+return NextResponse({responseData},{status:200});
+
 
 }catch(e){
   console.error("Payment processing error",e);
-  NextResponse.json({error:e},{status:500});
+  return NextResponse.json({error:e},{status:500});
 }
 
 
