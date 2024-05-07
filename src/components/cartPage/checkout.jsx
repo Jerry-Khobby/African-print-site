@@ -1,6 +1,7 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { useRouter } from 'next/navigation';
+import axios from "axios";
 
 const CheckOut = () => {
   const router = useRouter();
@@ -19,26 +20,35 @@ const CheckOut = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
+    // Send the form data to your API route
     try {
-      const response = await fetch('/api/payment', {
+      const response = await fetch('/api/cash', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
-        const { authorization_url } = await response.json();
-        router.push(authorization_url);
+        // Assuming the API returns a JSON response
+        const responseData = await response.json();
+        if (responseData && responseData.authorization_url) {
+          const { authorization_url } = responseData;
+          router.push(authorization_url);
+        } else {
+          throw new Error('Authorization URL not found in response');
+        }
       } else {
         throw new Error('An error occurred while processing the payment');
       }
     } catch (error) {
       console.error('Payment error:', error);
+      // Handle errors (e.g., display an error message)
     }
   };
+  
 
   return (
     <div className="h-full w-full items-center justify-center flex flex-col gap-8">

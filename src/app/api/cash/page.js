@@ -1,51 +1,43 @@
-import axios from "axios";
+
 import { NextResponse } from "next/server";
 
+export default async function POST(request) {
+  try {
+    const { email, amount } = await request.json();
+    const secretKey = process.env.SECRET_KEY;
 
+    if (!secretKey) {
+      throw new Error("Missing PAYSTACK_SECRET_KEY environment variable");
+    }
 
-export default  async function POST(req){
-if(req.method!=="POST"){
-return NextResponse.json({message:'Unsupported method'},{status:405})
-}
-try{
-  const {email,amount}= await req.body;
-  const secretKey="sk_test_fef51ce6992d70124e0ff4fe8e429612d73a0fc4";
+    const data = {
+      email,
+      amount: amount * 100,
+      callback_url: "https://african-print-site.vercel.app/",
+      currency: "GHS",
+    };
 
-  
-if(!secretKey){
-  throw new Error("Missing PAYSTACK_SECRET_KEY environment variable");
-}
+    const response = await fetch(
+      'https://api.paystack.co/transaction/initialize',
+      {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${secretKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
-const data={
-  email,
-  amount:amount*100,
-  callback_url:"https://african-print-site.vercel.app/",
-  currency:"GHS",
-};
+    if (!response.ok) {
+      throw new Error('An error occurred while processing the payment');
+    }
 
-const response= await fetch(
-  'https://api.paystack.co/transaction/initialize',
-  {
-    headers:{
-      Authorization:`Bearer${secretKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
+    const responseData = await response.json();
+    return NextResponse.json(responseData); // Return the Paystack response
+
+  } catch (error) {
+    console.error("Payment processing error", error);
+    return NextResponse.json(error);
   }
-);
-
-if (!response.ok) {
-  throw new Error('An error occurred while processing the payment');
-}
-
-const responseData = await response.json();
-return NextResponse({responseData},{status:200});
-
-
-}catch(e){
-  console.error("Payment processing error",e);
-  return NextResponse.json({error:e},{status:500});
-}
-
-
 }
