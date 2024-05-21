@@ -6,6 +6,7 @@ const initialState = {
   searchItem:null,
   notification:true, // this to help me display a green background light 
   message:'',
+  cashAmount:null, 
 
 };
 

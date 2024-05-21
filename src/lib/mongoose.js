@@ -6,7 +6,7 @@ export async function initiMongoose() {
           console.log("MongoDB connection already established");
           return mongoose.connection;
       }
-      return await mongoose.connect(, {
+      return await mongoose.connect({
           useNewUrlParser: true,
           useUnifiedTopology: true
       });
