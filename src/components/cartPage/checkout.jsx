@@ -1,7 +1,6 @@
-"use client"
-import React, { useState} from 'react';
+"use client";
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import axios from "axios";
 
 const CheckOut = () => {
   const router = useRouter();
@@ -9,6 +8,7 @@ const CheckOut = () => {
     email: '',
     amount: '',
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -20,8 +20,8 @@ const CheckOut = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
-    // Send the form data to your API route
+    setError(null); // Reset error state before new submission
+
     try {
       const response = await fetch('/api/cash', {
         method: 'POST',
@@ -30,25 +30,24 @@ const CheckOut = () => {
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
-        // Assuming the API returns a JSON response
         const responseData = await response.json();
-        if (responseData && responseData.authorization_url) {
-          const { authorization_url } = responseData;
+        if (responseData && responseData.data && responseData.data.authorization_url) {
+          const { authorization_url } = responseData.data;
           router.push(authorization_url);
         } else {
           throw new Error('Authorization URL not found in response');
         }
       } else {
-        throw new Error('An error occurred while processing the payment');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'An error occurred while processing the payment');
       }
     } catch (error) {
-      console.error('Payment error:', error);
-      // Handle errors (e.g., display an error message)
+      console.error('Payment error:', error.message);
+      setError(error.message); // Set error state to display error message
     }
   };
-  
 
   return (
     <div className="h-full w-full items-center justify-center flex flex-col gap-8">
@@ -80,6 +79,7 @@ const CheckOut = () => {
           Pay Now
         </button>
       </form>
+      {error && <p className="text-red-500 mt-4">{error}</p>} {/* Display error message if any */}
     </div>
   );
 };
