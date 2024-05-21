@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { FaTrash } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 import { GoPlus } from "react-icons/go";
-import { increaseQuantity, decreaseQuantity,removeItem } from "@/lib/cartItemSlice";
+import { increaseQuantity, decreaseQuantity,removeItem,setSubtotal } from "@/lib/cartItemSlice";
 import { Link } from "@mui/material";
 
 
@@ -18,14 +18,19 @@ const EachCartItemComponent = () => {
 const calculateTotalPrice = (item) =>{
 return Math.round((item.price* item.quantity)*100)/100;
   }
+
   // function to calculate total Price or overall  price 
-  const calculateSubtotalPrice =()=>{
-    let subtotal=0;
-    cartItems.forEach((item)=>{
+ // Function to calculate subtotal price
+ const calculateSubtotalPrice = () => {
+  let subtotal = 0;
+  if (cartItems) {
+    cartItems.forEach((item) => {
       subtotal += calculateTotalPrice(item);
-    })
-    return Math.round(subtotal*100)/100;
+    });
   }
+  return Math.round(subtotal * 100) / 100;
+};
+
 
   // Check if cartItems is an empty array
   if (!cartItems || cartItems.length === 0) {

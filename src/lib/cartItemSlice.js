@@ -6,7 +6,8 @@ const initialState = {
   searchItem:null,
   notification:true, // this to help me display a green background light 
   message:'',
-  cashAmount:null, 
+  cashAmount:0, // I will have to create a new for the subtotal amount gotten 
+
 
 };
 
@@ -104,8 +105,11 @@ const cartSlice = createSlice({
       state.notification=false;
       state.message=" ";
     },
+    setSubtotal:(state,action)=>{ // New action to set the subtotal 
+      state.cashAmount=action.payload;
+    },
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity,removeItem,setSearchItem,hideNotification } = cartSlice.actions;
+export const { addToCart, increaseQuantity, decreaseQuantity,removeItem,setSearchItem,hideNotification,setSubtotal } = cartSlice.actions;
 export default cartSlice.reducer;

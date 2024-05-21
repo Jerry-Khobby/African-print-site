@@ -1,12 +1,14 @@
 "use client";
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAppSelector } from '@/lib/hooks';
 
 const CheckOut = () => {
   const router = useRouter();
+  const subtotal=useAppSelector((state)=>state.cart.cashAmount);
   const [formData, setFormData] = useState({
     email: '',
-    amount: '',
+    amount: subtotal,
   });
   const [error, setError] = useState(null);
 
